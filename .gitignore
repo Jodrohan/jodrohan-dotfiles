@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+
+# But explicitly track these specific customization folders:
+!hypr/
+!hypr/custom/
+!hypr/custom/**
+!ags/
+!kitty/
+!rofi/
+
+# Track the .gitignore file itself
+!.gitignore
