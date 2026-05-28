@@ -11,3 +11,15 @@ hl.bind("F1", function()
     hl.dispatch(hl.dsp.exec_cmd("[workspace 2 silent] vivaldi --new-window https://cs50.harvard.edu/python/"))
     hl.dispatch(hl.dsp.exec_cmd("[workspace 3 silent] code"))
 end)
+
+-- =====================================================================
+-- CUSTOM BROWSER OVERRIDE (SUPER + W)
+-- =====================================================================
+
+-- 1. Unbind the theme's default Chrome shortcut to prevent conflicts
+hl.unbind("SUPER + W")
+
+-- 2. Bind Super + W directly to Vivaldi
+hl.bind("SUPER + W", function()
+    hl.dispatch(hl.dsp.exec_cmd("vivaldi"))
+end)
