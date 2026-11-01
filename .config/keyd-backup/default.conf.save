@@ -1,0 +1,29 @@
+[ids]
+*
+
+[main]
+# Tap Menu to toggle the numpad layer on/off
+menu = toggle(numpad)
+
+[numpad]
+# 3x3 Number Grid
+u = kp7
+i = kp8
+o = kp9
+j = kp4
+k = kp5
+l = kp6
+m = kp1
+, = kp2
+. = kp3
+
+# Zero keys
+rightalt = kp0
+space = kp0
+
+# Right Column Operators (Matched to your hardware output)
+sysrq = kp/
+delete = kp*
+pageup = kp-
+pagedown = kp+
+up = kpenter
