@@ -351,6 +351,8 @@ hl.bind("SUPER + C", hl.dsp.exec_cmd("google-chrome-stable --app=https://www.ins
 hl.bind("CTRL + SUPER + SHIFT + ALT + W", hl.dsp.exec_cmd(officeSoftware), { description = "App: Office software" })
 hl.bind("SUPER + X", hl.dsp.exec_cmd("google-chrome-stable --app=https://www.youtube.com"), { description = "App: YouTube" })
 hl.bind("SUPER + Z", hl.dsp.exec_cmd("zapzap || flatpak run com.rtosta.zapzap"), { description = "App: ZapZap" })
+hl.bind("SUPER + SHIFT + Z", hl.dsp.exec_cmd("google-chrome-stable --app=https://www.reddit.com"), { description = "App: Reddit" })
+hl.bind("SUPER + ALT + X", hl.dsp.exec_cmd("google-chrome-stable --app=https://open.spotify.com"), { description = "App: Spotify" })
 hl.bind("CTRL + SUPER + V", hl.dsp.exec_cmd(volumeMixer), { description = "App: Volume mixer" })
 hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })
 hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = "App: Task manager" })
