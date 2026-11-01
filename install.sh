@@ -7,3 +7,6 @@ sudo pacman -S --needed - < ~/.config/pkglist.txt
 sudo mkdir -p /etc/keyd && sudo cp -r ~/.config/keyd-backup/* /etc/keyd/
 sudo systemctl enable --now keyd
 echo "System restore complete!"
+
+sudo systemctl disable sddm gdm lightdm ly 2>/dev/null || true
+chsh -s /usr/bin/fish
