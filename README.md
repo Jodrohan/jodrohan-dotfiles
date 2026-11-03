@@ -130,3 +130,26 @@ To snapshot `/etc/keyd`, export the latest `pacman` package manifest, stage modi
 ```fish
 backup-os
 ```
+
+
+## 🚀 Frameless Web App & Media Keybinds (`--app` Mode)
+
+Integrated directly into Hyprland (`keybinds.lua`) and dynamically parsed by the Quickshell Keybinds Cheatsheet (`Super + /`):
+
+| Shortcut | Application | Execution Engine |
+| :--- | :--- | :--- |
+| `Super + X` | **YouTube** | `google-chrome-stable --app=https://www.youtube.com` |
+| `Super + C` | **Instagram** | `google-chrome-stable --app=https://www.instagram.com` |
+| `Super + Z` | **ZapZap (WhatsApp)** | `zapzap` / Flatpak Native Client |
+| `Super + Shift + Z` | **Reddit** | `google-chrome-stable --app=https://www.reddit.com` |
+| `Super + Alt + X` | **Spotify** | `google-chrome-stable --app=https://open.spotify.com` |
+
+---
+
+## 🛡️ Smart Btrfs Snapshot Architecture (`1 Golden + 3 Rolling`)
+
+Instead of bloated hourly timeline snapshots, system recovery is governed by a deterministic Snapper policy (`/etc/snapper/configs/root` mirrored to `~/.config/snapper-backup/root`) triggered via `backup-os`:
+
+* **1 Immortal Golden Baseline (`#499`):** Permanently pinned clean OS state (`Cleanup: none`) immune to automated pruning.
+* **3 Rolling Checkpoints (`NUMBER_LIMIT="3"`):** Every `backup-os` execution creates a fresh recovery checkpoint and automatically prunes any rolling snapshot older than the latest 3.
+* **Zero Background Bloat:** `snapper-timeline.timer` is disabled (`TIMELINE_CREATE="no"`) to keep CoW disk usage minimal (~65 GiB).
