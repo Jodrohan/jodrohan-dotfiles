@@ -245,7 +245,6 @@ sg3_utils
 shelly
 sherlock
 smartmontools
-snap-pac
 sof-firmware
 spectacle
 speedtest-cli
