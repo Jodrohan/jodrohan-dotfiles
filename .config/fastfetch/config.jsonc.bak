@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "padding": {
+      "top": 4,
+      "left": 3,
+      "right": 6
+    }
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "36"
+    },
+    "key": {
+      "width": 18
+    },
+    "percent": {
+      "type": 9
+    }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "title",
+      "format": " [32mwhoami?[0m@{2}  [36m<Solo Is The Source Code/> 🦢[0m",
+      "color": {
+        "user": "32",
+        "host": "32",
+        "at": "37"
+      }
+    },
+    {
+      "type": "custom",
+      "format": " ─────────────────────────────────────────────",
+      "outputColor": "90"
+    },
+    { "type": "os", "key": " ╭─   OS", "keyColor": "36" },
+    { "type": "kernel", "key": " ├─   Kernel", "keyColor": "36" },
+    { "type": "uptime", "key": " ├─ 󰅐  Uptime", "keyColor": "36" },
+    { "type": "packages", "key": " ├─ 󰏖  Packages", "keyColor": "36" },
+    {
+      "type": "command",
+      "key": " ╰─ 󰋊  Snapshots",
+      "text": "ls -1 /.snapshots 2>/dev/null | wc -l | awk '{print $1 \" Btrfs recovery points\"}'",
+      "keyColor": "36"
+    },
+    "break",
+    { "type": "wm", "key": " ╭─   WM", "keyColor": "36" },
+    { "type": "terminal", "key": " ├─   Terminal", "keyColor": "36" },
+    { "type": "shell", "key": " ├─ 󱆃  Shell", "keyColor": "36" },
+    { "type": "display", "key": " ╰─ 󰍹  Display", "keyColor": "36" },
+    "break",
+    { "type": "cpu", "key": " ╭─ 󰻠  CPU", "temp": true, "keyColor": "36" },
+    { "type": "gpu", "key": " ├─ 󰢮  GPU", "temp": true, "keyColor": "36" },
+    {
+      "type": "command",
+      "key": " ├─ 󰓅  Governor",
+      "text": "cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver /sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference 2>/dev/null | tr '\\n' ' ' | awk '{print $1 \" (\" $2 \")\"}'",
+      "keyColor": "36"
+    },
+    { "type": "memory", "key": " ├─ 󰍛  Memory", "keyColor": "36" },
+    { "type": "swap", "key": " ├─ 󰓡  ZRAM", "keyColor": "36" },
+    { "type": "disk", "key": " ├─ 󰋊  Storage", "folders": "/", "keyColor": "36" },
+    { "type": "battery", "key": " ╰─   Power", "keyColor": "36" },
+    "break",
+    { "type": "loadavg", "key": " ╭─ 󰊚  Load Avg", "keyColor": "36" },
+    { "type": "processes", "key": " ├─   Tasks", "keyColor": "36" },
+    {
+      "type": "command",
+      "key": " ├─ 󰦝  Tunnel",
+      "text": "pgrep -x warp-svc >/dev/null && echo 'Cloudflare WARP (TLS 1.3)' || echo 'Direct Uplink'",
+      "keyColor": "36"
+    },
+    { "type": "wifi", "key": " ╰─   Wireless", "keyColor": "36" },
+    "break"
+  ]
+}
