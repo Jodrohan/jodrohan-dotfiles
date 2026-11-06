@@ -82,6 +82,7 @@ flatpak
 fsarchiver
 fwupd
 gdm
+geogebra
 git
 glances
 gst-libav

@@ -23,7 +23,7 @@
     "break",
     {
       "type": "title",
-      "format": " {1}@{2}  \u001b[36m<Solo Is The Source Code/> 🦢\u001b[0m",
+      "format": " 001b[32mwhoami?001b[0m@{2}  \u001b[36m<Solo Is The Source Code/> 🦢\u001b[0m",
       "color": {
         "user": "32",
         "host": "32",
