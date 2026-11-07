@@ -31,3 +31,6 @@ if status is-interactive
         alias ssh 'kitten ssh'
     end
 end
+
+alias warp-on="sudo systemctl start warp-svc.service; and sleep 1; and warp-cli connect"
+alias warp-off="warp-cli disconnect; and sudo systemctl stop warp-svc.service"
