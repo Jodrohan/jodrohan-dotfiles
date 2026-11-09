@@ -7,9 +7,9 @@ if status is-interactive
     fzf --fish | source
 
     # Use fd for faster file and directory searching (respects .gitignore)
-    set -gx FZF_DEFAULT_COMMAND 'fd --type f --strip-cwd-prefix --hidden --exclude .git --exclude .wine --exclude .cache --exclude .local/share/Steam'
+    set -gx FZF_DEFAULT_COMMAND 'fd --type f --strip-cwd-prefix --hidden --exclude .git --exclude .dotfiles --exclude .dotfiles --exclude .wine --exclude .cache --exclude .local/share/Steam'
     set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-    set -gx FZF_ALT_C_COMMAND 'fd --type d --strip-cwd-prefix --hidden --exclude .git --exclude .wine --exclude .cache --exclude .local/share/Steam'
+    set -gx FZF_ALT_C_COMMAND 'fd --type d --strip-cwd-prefix --hidden --exclude .git --exclude .dotfiles --exclude .dotfiles --exclude .wine --exclude .cache --exclude .local/share/Steam'
 
     # Enable zoxide for fast directory jumping (z and zi)
     zoxide init fish | source
