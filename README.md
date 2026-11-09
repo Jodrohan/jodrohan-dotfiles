@@ -1,13 +1,8 @@
 <div align="center">
 
-# 🦢 Maverick Dotfiles
+# Maverick Dotfiles
 ### `<Solo Is The Source Code/>`
 
-![OS](https://img.shields.io/badge/OS-CachyOS_x86__64-11111b?style=for-the-badge&logo=archlinux&logoColor=89b4fa&labelColor=181825)
-![WM](https://img.shields.io/badge/WM-Hyprland_(Lua)-11111b?style=for-the-badge&logo=wayland&logoColor=f5c2e7&labelColor=181825)
-![Shell](https://img.shields.io/badge/Shell-Fish_4.9-11111b?style=for-the-badge&logo=gnubash&logoColor=a6e3a1&labelColor=181825)
-![Terminal](https://img.shields.io/badge/Terminal-Kitty-11111b?style=for-the-badge&logo=kitty&logoColor=fab387&labelColor=181825)
-![Daemon](https://img.shields.io/badge/Input-keyd_evdev-11111b?style=for-the-badge&logo=linux&logoColor=f9e2af&labelColor=181825)
 
 *A low-latency, keyboard-centric Wayland workstation engineered for CachyOS—featuring modular Lua window management, kernel-level `keyd` input layers, and a silent TTY1 boot pipeline.*
 
@@ -153,3 +148,13 @@ Instead of bloated hourly timeline snapshots, system recovery is governed by a d
 * **1 Immortal Golden Baseline (`#499`):** Permanently pinned clean OS state (`Cleanup: none`) immune to automated pruning.
 * **3 Rolling Checkpoints (`NUMBER_LIMIT="3"`):** Every `backup-os` execution creates a fresh recovery checkpoint and automatically prunes any rolling snapshot older than the latest 3.
 * **Zero Background Bloat:** `snapper-timeline.timer` is disabled (`TIMELINE_CREATE="no"`) to keep CoW disk usage minimal (~65 GiB).
+
+## Terminal Navigation & CLI Stack
+
+| Shortcut / Command | Tool | Purpose |
+| :--- | :--- | :--- |
+| `Super + E` / `y` | `yazi` | Async Rust terminal file manager with auto-`cd` on exit |
+| `z <dir>` / `zi` | `zoxide` | Frecency directory jumper and interactive picker |
+| `Ctrl + T` / `Alt + C` | `fzf` + `fd` | Fast file and directory lookup (excludes `.git`, `.dotfiles`, `.wine`, `.cache`) |
+| `Ctrl + R` | `fzf` | Interactive command history search |
+| `warp-on` / `warp-off` | `warp-cli` | On-demand Cloudflare WARP tunnel toggle |
