@@ -3,6 +3,27 @@ if status is-interactive
     # No greeting
     set fish_greeting
 
+    # Enable fzf Ctrl+T, Ctrl+R, and Alt+C keybindings
+    fzf --fish | source
+
+    # Use fd for faster file and directory searching (respects .gitignore)
+    set -gx FZF_DEFAULT_COMMAND 'fd --type f --strip-cwd-prefix --hidden --exclude .git --exclude .wine --exclude .cache --exclude .local/share/Steam'
+    set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+    set -gx FZF_ALT_C_COMMAND 'fd --type d --strip-cwd-prefix --hidden --exclude .git --exclude .wine --exclude .cache --exclude .local/share/Steam'
+
+    # Enable zoxide for fast directory jumping (z and zi)
+    zoxide init fish | source
+
+    # Yazi wrapper function (type 'y' to launch and change directory on exit)
+    function y
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        command yazi $argv --cwd-file="$tmp"
+        if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+            builtin cd -- "$cwd"
+        end
+        command rm -f -- "$tmp"
+    end
+
     # Use starship
     function starship_transient_prompt_func
         starship module character
@@ -11,7 +32,7 @@ if status is-interactive
         starship init fish | source
         enable_transience
     end
-    
+
     # Colors
     if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
         cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
@@ -30,7 +51,8 @@ if status is-interactive
     if test "$TERM" = "xterm-kitty"
         alias ssh 'kitten ssh'
     end
-end
 
-alias warp-on="sudo systemctl start warp-svc.service; and sleep 1; and warp-cli connect"
-alias warp-off="warp-cli disconnect; and sudo systemctl stop warp-svc.service"
+    # Cloudflare Warp aliases
+    alias warp-on="sudo systemctl start warp-svc.service; and sleep 1; and warp-cli connect"
+    alias warp-off="warp-cli disconnect; and sudo systemctl stop warp-svc.service"
+end

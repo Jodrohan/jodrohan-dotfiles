@@ -83,7 +83,9 @@ fsarchiver
 fwupd
 gdm
 geogebra
+gimp
 git
+gitleaks
 glances
 gst-libav
 gst-plugin-pipewire
