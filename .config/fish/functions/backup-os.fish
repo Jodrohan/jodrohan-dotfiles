@@ -1,6 +1,7 @@
 function backup-os --description "Sync dotfiles, workspace clone, package lists, and Btrfs snapshots"
     set -l ws_repo "$HOME/workspace/github/jodrohan-dotfiles"
     alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+    set -l golden_id (string trim (cat ~/system-backup/golden_baseline_id 2>/dev/null; or echo 522))
 
     echo ":: [1/5] Syncing workspace clone ($ws_repo)..."
     if test -d "$ws_repo/.git"
@@ -36,9 +37,9 @@ function backup-os --description "Sync dotfiles, workspace clone, package lists,
         git -C "$ws_repo" pull --rebase origin main
     end
 
-    echo ":: [5/5] Rotating rolling Btrfs snapshots (keeping Golden Baseline #522 + latest 1)..."
+    echo ":: [5/5] Rotating rolling Btrfs snapshots (keeping Golden Baseline #$golden_id + latest 1)..."
     sudo snapper create --description "Rolling Backup: "(date "+%Y-%m-%d %H:%M")
-    for snap in (sudo snapper list | awk 'NR>2 {print $1}' | string trim | grep -vE "^(0|522)\$" | head -n -1)
+    for snap in (sudo snapper list | awk 'NR>2 {print $1}' | string trim | grep -vE "^(0|$golden_id)\$" | head -n -1)
 sudo snapper delete $snap
 end
 sudo limine-snapper-sync
