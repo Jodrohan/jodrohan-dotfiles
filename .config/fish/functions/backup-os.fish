@@ -36,10 +36,11 @@ function backup-os --description "Sync dotfiles, workspace clone, package lists,
         git -C "$ws_repo" pull --rebase origin main
     end
 
-    echo ":: [5/5] Rotating rolling Btrfs snapshots (keeping Golden Baseline #499 + latest 3)..."
+    echo ":: [5/5] Rotating rolling Btrfs snapshots (keeping Golden Baseline #522 + latest 1)..."
     sudo snapper create --description "Rolling Backup: "(date "+%Y-%m-%d %H:%M")
-    for snap in (sudo snapper list | awk 'NR>2 {print $1}' | string trim | grep -vE "^(0|499)\$" | head -n -3)
+    for snap in (sudo snapper list | awk 'NR>2 {print $1}' | string trim | grep -vE "^(0|522)\$" | head -n -1)
 sudo snapper delete $snap
 end
+sudo limine-snapper-sync
 sudo snapper list
 end
