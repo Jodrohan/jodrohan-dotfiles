@@ -102,6 +102,7 @@ hwdetect
 hwinfo
 hyprpaper
 hyprpolkitagent
+img2pdf
 inetutils
 inotify-tools
 input-leap
