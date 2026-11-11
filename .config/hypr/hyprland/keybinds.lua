@@ -13,20 +13,20 @@ hl.bind("SUPER + SUPER_L", hl.dsp.global("quickshell:searchToggleRelease"), { re
 hl.bind("SUPER + SUPER_R", hl.dsp.global("quickshell:searchToggleRelease"), { release = true })
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel"), { release = true })
 hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel"), { release = true })
-hl.bind("SUPER + Tab", hl.dsp.global("quickshell:overviewWorkspacesToggle"), { description = "Shell: Toggle overview" })
-hl.bind("SUPER + V", hl.dsp.global("quickshell:overviewClipboardToggle"))
-hl.bind("SUPER + Period", hl.dsp.global("quickshell:overviewEmojiToggle"))
-hl.bind("SUPER + A", hl.dsp.global("quickshell:sidebarLeftToggle"), { description = "Shell: Toggle left sidebar" })
-hl.bind("SUPER + ALT + A", hl.dsp.global("quickshell:sidebarLeftToggleDetach"))
-hl.bind("SUPER + B", hl.dsp.global("quickshell:sidebarLeftToggle"))
-hl.bind("SUPER + O", hl.dsp.global("quickshell:sidebarLeftToggle"))
-hl.bind("SUPER + N", hl.dsp.global("quickshell:sidebarRightToggle"), { description = "Shell: Toggle right sidebar" })
-hl.bind("SUPER + Slash", hl.dsp.global("quickshell:cheatsheetToggle"), { description = "Shell: Toggle cheatsheet" })
-hl.bind("SUPER + K", hl.dsp.global("quickshell:oskToggle"), { description = "Shell: Toggle on-screen keyboard" })
-hl.bind("SUPER + M", hl.dsp.global("quickshell:mediaControlsToggle"), { description = "Shell: Toggle media controls" })
-hl.bind("SUPER + G", hl.dsp.global("quickshell:overlayToggle"), { description = "Shell: Toggle widget overlay" })
-hl.bind("CTRL + ALT + Delete", hl.dsp.global("quickshell:sessionToggle"), { description = "Shell: Toggle session menu" })
-hl.bind("SUPER + J", hl.dsp.global("quickshell:barToggle"), { description = "Shell: Toggle bar" })
+hl.bind("SUPER + Tab", hl.dsp.global("quickshell:overviewWorkspacesToggle"), { locked = true, description = "Shell: Toggle overview" })
+hl.bind("SUPER + V", hl.dsp.global("quickshell:overviewClipboardToggle"), { locked = true })
+hl.bind("SUPER + Period", hl.dsp.global("quickshell:overviewEmojiToggle"), { locked = true })
+hl.bind("SUPER + A", hl.dsp.global("quickshell:sidebarLeftToggle"), { locked = true, description = "Shell: Toggle left sidebar" })
+hl.bind("SUPER + ALT + A", hl.dsp.global("quickshell:sidebarLeftToggleDetach"), { locked = true })
+hl.bind("SUPER + B", hl.dsp.global("quickshell:sidebarLeftToggle"), { locked = true })
+hl.bind("SUPER + O", hl.dsp.global("quickshell:sidebarLeftToggle"), { locked = true })
+hl.bind("SUPER + N", hl.dsp.global("quickshell:sidebarRightToggle"), { locked = true, description = "Shell: Toggle right sidebar" })
+hl.bind("SUPER + Slash", hl.dsp.global("quickshell:cheatsheetToggle"), { locked = true, description = "Shell: Toggle cheatsheet" })
+hl.bind("SUPER + K", hl.dsp.global("quickshell:oskToggle"), { locked = true, description = "Shell: Toggle on-screen keyboard" })
+hl.bind("SUPER + M", hl.dsp.global("quickshell:mediaControlsToggle"), { locked = true, description = "Shell: Toggle media controls" })
+hl.bind("SUPER + G", hl.dsp.global("quickshell:overlayToggle"), { locked = true, description = "Shell: Toggle widget overlay" })
+hl.bind("CTRL + ALT + Delete", hl.dsp.global("quickshell:sessionToggle"), { locked = true, description = "Shell: Toggle session menu" })
+hl.bind("SUPER + J", hl.dsp.global("quickshell:barToggle"), { locked = true, description = "Shell: Toggle bar" })
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(qsIsAlive .. " || pkill wlogout || wlogout -p layer-shell"))
 hl.bind("SHIFT + SUPER + ALT + Slash", hl.dsp.exec_cmd("qs -p $HOME/.config/quickshell/$qsConfig/welcome.qml"))
 
@@ -48,7 +48,7 @@ hl.bind("CTRL + SUPER + SHIFT + D", hl.dsp.global("quickshell:toggleLightDark"),
 hl.bind("CTRL + SUPER + T", hl.dsp.exec_cmd(qsIsAlive .. " || " .. qsScripts .. "/colors/switchwall.sh"))
 hl.bind("CTRL + SUPER + R", hl.dsp.exec_cmd("killall ydotool qs quickshell; qs -c $qsConfig &"),
     { description = "Shell: Restart widgets" })
-hl.bind("CTRL + SUPER + P", hl.dsp.global("quickshell:panelFamilyCycle"), { description = "Shell: Cycle panel family" })
+hl.bind("CTRL + SUPER + P", hl.dsp.global("quickshell:panelFamilyCycle"), { locked = true, description = "Shell: Cycle panel family" })
 
 --##! Utilities
 --# Screenshot, Record, OCR, Color picker, Clipboard history
@@ -58,10 +58,10 @@ hl.bind("SUPER + V", hl.dsp.exec_cmd(
 hl.bind("SUPER + Period", hl.dsp.exec_cmd(
         qsIsAlive .. " || pkill fuzzel || " .. hyprScripts .. "/fuzzel-emoji.sh copy"),
     { description = "Utilities: Emoji >> clipboard" })
-hl.bind("SUPER + SHIFT + S", hl.dsp.global("quickshell:regionScreenshot"), { description = "Utilities: Screen snip" })
+hl.bind("SUPER + SHIFT + S", hl.dsp.global("quickshell:regionScreenshot"), { locked = true, description = "Utilities: Screen snip" })
 hl.bind("SUPER + SHIFT + S",
     hl.dsp.exec_cmd(qsIsAlive .. " || pidof slurp || hyprshot --freeze --clipboard-only --mode region --silent"))
-hl.bind("SUPER + SHIFT + A", hl.dsp.global("quickshell:regionSearch"), { description = "Utilities: Google Lens" })
+hl.bind("SUPER + SHIFT + A", hl.dsp.global("quickshell:regionSearch"), { locked = true, description = "Utilities: Google Lens" })
 hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd(qsIsAlive .. " || pidof slurp || " .. hyprScripts .. "/snip_to_search.sh"))
 --# OCR
 hl.bind("SUPER + SHIFT + X", hl.dsp.global("quickshell:regionOcr"),
@@ -139,7 +139,6 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ tog
 hl.bind("SUPER + ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"),
     { locked = true, description = "Media: Toggle mic" })
 
---#!
 --##! Window
 --# Focusing
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Window: Move" })
@@ -195,12 +194,6 @@ for i = 1, 10 do
     end, { description = "Window: Send to workspace " .. i })
 end
 --# We also use raw keycodes because some keyboard layouts register number keys as different chars. The codes can be verified with `wev`
--- for i = 1, 10 do
---     local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
---     hl.bind("SUPER + ALT + code:" .. numberkey[i], function()
---         hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
---     end)
--- end
 --# keypad numbers
 for i = 1, 10 do
     local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
@@ -311,24 +304,10 @@ hl.define_submap("virtual-machine", function()
 end)
 
 
---#!
---# Testing
-hl.bind("SUPER + ALT + F11",
-    hl.dsp.exec_cmd(
-        "bash -c 'RANDOM_IMAGE=$(find ~/Pictures -type f | shuf -n 1); ACTION=$(notify-send \"Test notification with body image\" \"This notification should contain your user account <b>image</b> and <a href=\\\"https://discord.com/app\\\">Discord</a> <b>icon</b>. Oh and here is a random image in your Pictures folder: <img src=\\\"$RANDOM_IMAGE\\\" alt=\\\"Testing image\\\"/>\" -a \"Hyprland\" -p -h \"string:image-path:/var/lib/AccountsService/icons/$USER\" -t 6000 -i \"discord\" -A \"openImage=Profile image\" -A \"action2=Open the random image\" -A \"action3=Useless button\"); [[ $ACTION == *openImage ]] && xdg-open \"/var/lib/AccountsService/icons/$USER\"; [[ $ACTION == *action2 ]] && xdg-open \"$RANDOM_IMAGE\"'")
-) -- # [hidden]
-hl.bind("SUPER + ALT + F12",
-    hl.dsp.exec_cmd(
-        "bash -c 'RANDOM_IMAGE=$(find ~/Pictures -type f | shuf -n 1); ACTION=$(notify-send \"Test notification\" \"This notification should contain a random image in your <b>Pictures</b> folder and <a href=\\\"https://discord.com/app\\\">Discord</a> <b>icon</b>.\n<i>Flick right to dismiss!</i>\" -a \"Discord (fake)\" -p -h \"string:image-path:$RANDOM_IMAGE\" -t 6000 -i \"discord\" -A \"openImage=Profile image\" -A \"action2=Useless button\"); [[ $ACTION == *openImage ]] && xdg-open \"/var/lib/AccountsService/icons/$USER\"'")
-)                                                                                                        -- # [hidden]
-hl.bind("SUPER + ALT + Equal",
-    hl.dsp.exec_cmd("notify-send 'Urgent notification' 'Ah hell no' -u critical -a 'Hyprland keybind'")) -- # [hidden]
-
 --##! Session
 hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"), { description = "Session: Lock" })
 hl.bind("SUPER + SHIFT + L", hl.dsp.exec_cmd("systemctl suspend || loginctl suspend"),
     { locked = true, description = "Session: Sleep" }) -- Sleep
--- hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("systemctl suspend || loginctl suspend"), {locked = true} ) -- # [hidden] Suspend when laptop lid is closed, uncomment if for whatever reason it's not the default behavior
 
 hl.bind("CTRL + SHIFT + ALT + SUPER + Delete", hl.dsp.exec_cmd("systemctl poweroff || loginctl poweroff"),
     { description = "Session: Shut down" }) -- # [hidden] Power off
@@ -350,6 +329,4 @@ hl.bind("CTRL + SUPER + V", hl.dsp.exec_cmd(volumeMixer), { description = "App: 
 hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })
 hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = "App: Task manager" })
 
---# Cursed stuff
---## Make window not amogus large
 hl.bind("CTRL + SUPER + Backslash", hl.dsp.window.resize({ x = 640, y = 480, "exact" }))
