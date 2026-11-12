@@ -1,20 +1,15 @@
-# Commands to run in interactive sessions can go here
 if status is-interactive
-    # No greeting
     set fish_greeting
 
-    # Enable fzf Ctrl+T, Ctrl+R, and Alt+C keybindings
+    # FZF & Directory Navigation
     fzf --fish | source
-
-    # Use fd for faster file and directory searching (respects .gitignore)
-    set -gx FZF_DEFAULT_COMMAND 'fd --type f --strip-cwd-prefix --hidden --exclude .git --exclude .dotfiles --exclude .dotfiles --exclude .wine --exclude .cache --exclude .local/share/Steam'
+    set -gx FZF_DEFAULT_COMMAND 'fd --type f --strip-cwd-prefix --hidden --exclude .git --exclude .dotfiles --exclude .wine --exclude .cache --exclude .local/share/Steam'
     set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-    set -gx FZF_ALT_C_COMMAND 'fd --type d --strip-cwd-prefix --hidden --exclude .git --exclude .dotfiles --exclude .dotfiles --exclude .wine --exclude .cache --exclude .local/share/Steam'
+    set -gx FZF_ALT_C_COMMAND 'fd --type d --strip-cwd-prefix --hidden --exclude .git --exclude .dotfiles --exclude .wine --exclude .cache --exclude .local/share/Steam'
 
-    # Enable zoxide for fast directory jumping (z and zi)
     zoxide init fish | source
 
-    # Yazi wrapper function (type 'y' to launch and change directory on exit)
+    # Yazi wrapper (change directory on exit)
     function y
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
         command yazi $argv --cwd-file="$tmp"
@@ -24,7 +19,7 @@ if status is-interactive
         command rm -f -- "$tmp"
     end
 
-    # Use starship
+    # Starship Prompt
     function starship_transient_prompt_func
         starship module character
     end
@@ -33,17 +28,13 @@ if status is-interactive
         enable_transience
     end
 
-    # Colors
+    # Quickshell generated terminal color sequences
     if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
         cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
     end
 
     # Aliases
-    # kitty doesn't clear properly so we need to do this weird printing
     alias clear "printf '\033[2J\033[3J\033[1;1H'"
-    alias celar "printf '\033[2J\033[3J\033[1;1H'"
-    alias claer "printf '\033[2J\033[3J\033[1;1H'"
-    alias pamcan pacman
     alias q 'qs -c ii'
     if test "$TERM" != "linux"
         alias ls 'eza --icons=auto'
@@ -52,7 +43,7 @@ if status is-interactive
         alias ssh 'kitten ssh'
     end
 
-    # Cloudflare Warp aliases
+    # Cloudflare Warp
     alias warp-on="sudo systemctl start warp-svc.service; and sleep 1; and warp-cli connect"
     alias warp-off="warp-cli disconnect; and sudo systemctl stop warp-svc.service"
 end

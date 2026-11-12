@@ -70,7 +70,6 @@ hl.config({
     },
     decoration = {
         -- 2 = circle, higher = squircle, 4 = very obvious squircle
-        -- Fuck clearly visible squircles. 100% Apple brainrot.
         rounding_power = 2.5,
         rounding = 18,
 
@@ -111,7 +110,6 @@ hl.config({
         preserve_split = true,
         smart_split = false,
         smart_resizing = false
-        -- precise_mouse_move = true,
     },
 })
 -- Curves
@@ -279,7 +277,7 @@ hl.config({
         animate_manual_resizes = false,
         animate_mouse_windowdragging = false,
         enable_swallow = false,
-        swallow_regex = "(foot|kitty|allacritty|Alacritty)",
+        swallow_regex = "(foot|kitty|alacritty|Alacritty)",
         on_focus_under_fullscreen = 2,
         allow_session_lock_restore = true,
         session_lock_xray = true,
