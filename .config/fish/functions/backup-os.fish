@@ -13,12 +13,15 @@ function backup-os --description "Sync dotfiles, workspace clone, package lists,
         dotfiles pull --rebase origin main
     end
 
-    echo ":: [2/5] Exporting package lists and keyd config..."
+    echo ":: [2/5] Exporting package lists, keyd, and NetworkManager config..."
     mkdir -p ~/system-backup
     pacman -Qqen > ~/system-backup/pkglist.txt
     pacman -Qqem > ~/system-backup/pkglist-aur.txt
     if test -f /etc/keyd/default.conf
         cp -f /etc/keyd/default.conf ~/system-backup/default.conf
+    end
+    if test -f /etc/NetworkManager/conf.d/wifi_backend.conf
+        cp -f /etc/NetworkManager/conf.d/wifi_backend.conf ~/system-backup/wifi_backend.conf
     end
 
     echo ":: [3/5] Committing and pushing live dotfiles..."
