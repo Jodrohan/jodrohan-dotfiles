@@ -3,7 +3,7 @@ set -euo pipefail
 
 echo ":: [1/4] Restoring system packages from pkglist..."
 if [[ -f "$HOME/system-backup/pkglist.txt" ]]; then
-    sudo pacman -S --needed - < "$HOME/system-backup/pkglist.txt" || true
+	cat "$HOME/system-backup/pkglist.txt" | sudo pacman -S --needed - || true
 fi
 
 echo ":: [2/4] Restoring keyd hardware remap config..."
