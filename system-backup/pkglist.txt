@@ -232,6 +232,7 @@ reflector
 s-nail
 seahorse
 sg3_utils
+shellcheck
 shelly
 smartmontools
 sof-firmware
