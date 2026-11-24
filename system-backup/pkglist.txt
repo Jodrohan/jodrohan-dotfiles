@@ -157,6 +157,7 @@ modemmanager
 mpvpaper
 mtools
 mtpfs
+mtr
 nano
 nano-syntax-highlighting
 ncdu
@@ -241,6 +242,7 @@ sudo
 switcheroo-control
 sysfsutils
 systemd-boot-manager
+tcpdump
 texinfo
 thefuck
 tree
@@ -261,6 +263,7 @@ vlc
 vlc-plugins-all
 vulkan-icd-loader
 vulkan-radeon
+wavemon
 wev
 which
 wine-cachyos
